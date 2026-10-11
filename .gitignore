@@ -6,3 +6,8 @@ __pycache__/
 results/*/probe.ledger.jsonl
 results/tier4/tuning/
 results/tier4/eval/*.ledger.jsonl
+
+# Credentials never enter git or archives (Gate 0)
+.env
+.env.*
+*.env
