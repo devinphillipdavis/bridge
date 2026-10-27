@@ -1,0 +1,291 @@
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 16:37:38,782: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 16:38:01,470: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 16:38:01,470: Using instance: open-instance, plan: open
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 16:38:02,351: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 16:38:06,843: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 16:38:06,843: Using instance: open-instance, plan: open
+submitted 1/12: dbgd6s8iudkc73e48vdg
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 16:43:02,351: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 16:43:06,222: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 16:43:06,222: Using instance: open-instance, plan: open
+submitted 2/12: dbgd96oiudkc73e49550
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 16:48:02,412: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 16:48:07,052: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 16:48:07,157: Using instance: open-instance, plan: open
+submitted 3/12: dbgdbiljm0ks73egdj20
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 16:53:02,373: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 16:53:06,095: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 16:53:06,096: Using instance: open-instance, plan: open
+submitted 4/12: dbgddstrd2mc73cugo60
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 16:58:02,373: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 16:58:20,729: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 16:58:20,729: Using instance: open-instance, plan: open
+submitted 5/12: dbgdgg9j4t8s73ac5bh0
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 17:03:02,374: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 17:03:08,853: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 17:03:08,854: Using instance: open-instance, plan: open
+submitted 6/12: dbgdijtrd2mc73cuh3k0
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 17:08:02,376: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 17:08:09,432: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 17:08:09,432: Using instance: open-instance, plan: open
+submitted 7/12: dbgdkvhj4t8s73ac5mh0
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 17:13:02,375: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 17:13:06,578: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 17:13:06,579: Using instance: open-instance, plan: open
+submitted 8/12: dbgdn9djm0ks73egecog
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 17:18:02,375: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 17:18:07,663: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 17:18:07,663: Using instance: open-instance, plan: open
+submitted 9/12: dbgdpkhj4t8s73ac5tug
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 17:23:02,377: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 17:23:09,835: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 17:23:09,835: Using instance: open-instance, plan: open
+submitted 10/12: dbgds09j4t8s73ac61n0
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 17:28:02,378: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 17:28:10,233: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 17:28:10,233: Using instance: open-instance, plan: open
+submitted 11/12: dbgductjm0ks73egen70
+qiskit_runtime_service._discover_account:WARNING:2026-10-27 17:33:02,378: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-27 17:33:09,752: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-27 17:33:09,753: Using instance: open-instance, plan: open
+submitted 12/12: dbge0m8iudkc73e4amgg
+{
+ "jobs_submitted": 12,
+ "jobs_done": 12,
+ "qpu_seconds": 96,
+ "sessions": [
+  "d54e808bae58"
+ ],
+ "analysis": {
+  "qubits": {
+   "4": {
+    "pooled": {
+     "c": 0.4976420398502663,
+     "a": 0.9927711659766884,
+     "gamma": 0.0,
+     "delta": -0.03983998802622209,
+     "eps": 0.007956073611615008
+    },
+    "rotation_error": [
+     0.01275607361161503,
+     0.01265607361161503,
+     0.007756073611615026,
+     0.007556073611615025,
+     0.008056073611615025,
+     0.007556073611615025,
+     0.007756073611615026,
+     0.0073560736116150246,
+     0.006156073611615024,
+     0.005856073611615023,
+     0.006556073611615024,
+     0.007456073611615025
+    ],
+    "contrast": [
+     0.995,
+     0.99,
+     0.995,
+     1.0,
+     0.99,
+     0.99,
+     0.99,
+     0.995,
+     0.99,
+     0.99,
+     0.995,
+     0.99
+    ],
+    "at_window_edge": false,
+    "p": {
+     "rotation_error": {
+      "dispersion": 0.000999000999000999,
+      "lag1_autocorrelation": 0.004995004995004995,
+      "trend_r2": 0.000999000999000999,
+      "cusum_peak": 0.02197802197802198
+     },
+     "contrast": {
+      "dispersion": 0.01098901098901099,
+      "lag1_autocorrelation": 0.6723276723276723,
+      "trend_r2": 0.6253746253746254,
+      "cusum_peak": 0.2177822177822178
+     }
+    },
+    "x100_vs_sin2_50eps_spearman": 0.9260563380281689
+   },
+   "22": {
+    "pooled": {
+     "c": 0.4977381493724905,
+     "a": 0.9927168338772676,
+     "gamma": 0.0,
+     "delta": -0.058105938045987446,
+     "eps": 0.005241375871363384
+    },
+    "rotation_error": [
+     0.009941375871363406,
+     0.009841375871363404,
+     0.004941375871363401,
+     0.0049413758713634,
+     0.0044413758713634,
+     0.004541375871363401,
+     0.0043413758713634005,
+     0.0042413758713634,
+     0.0036413758713634,
+     0.0024413758713633985,
+     0.005041375871363401,
+     0.005941375871363401
+    ],
+    "contrast": [
+     0.99,
+     0.99,
+     0.99,
+     0.99,
+     0.995,
+     0.99,
+     0.99,
+     0.995,
+     0.995,
+     0.99,
+     0.995,
+     0.99
+    ],
+    "at_window_edge": false,
+    "p": {
+     "rotation_error": {
+      "dispersion": 0.000999000999000999,
+      "lag1_autocorrelation": 0.004995004995004995,
+      "trend_r2": 0.001998001998001998,
+      "cusum_peak": 0.04095904095904096
+     },
+     "contrast": {
+      "dispersion": 0.5894105894105894,
+      "lag1_autocorrelation": 0.6743256743256744,
+      "trend_r2": 0.3196803196803197,
+      "cusum_peak": 0.37662337662337664
+     }
+    },
+    "x100_vs_sin2_50eps_spearman": 0.9440559440559443
+   },
+   "54": {
+    "pooled": {
+     "c": 0.4963614603217234,
+     "a": 0.9909701959757817,
+     "gamma": 0.00010578192915305969,
+     "delta": -0.04771461480863729,
+     "eps": 0.012270044888285774
+    },
+    "rotation_error": [
+     0.009770044888285789,
+     0.0192700448882858,
+     0.012970044888285792,
+     0.013070044888285792,
+     0.013170044888285793,
+     0.012870044888285793,
+     0.012770044888285792,
+     0.013070044888285792,
+     0.011670044888285791,
+     0.011370044888285791,
+     0.01147004488828579,
+     0.012170044888285792
+    ],
+    "contrast": [
+     0.99,
+     0.98,
+     0.99,
+     0.99,
+     0.99,
+     0.99,
+     0.99,
+     0.99,
+     0.99,
+     0.99,
+     0.99,
+     0.99
+    ],
+    "at_window_edge": false,
+    "p": {
+     "rotation_error": {
+      "dispersion": 0.000999000999000999,
+      "lag1_autocorrelation": 0.7192807192807192,
+      "trend_r2": 0.25874125874125875,
+      "cusum_peak": 0.6913086913086913
+     },
+     "contrast": {
+      "dispersion": 0.13486513486513488,
+      "lag1_autocorrelation": 0.6433566433566433,
+      "trend_r2": 0.07992007992007992,
+      "cusum_peak": 0.2817182817182817
+     }
+    },
+    "x100_vs_sin2_50eps_spearman": 0.5884422334042109
+   },
+   "82": {
+    "pooled": {
+     "c": 0.49868616086850154,
+     "a": 0.9724255994662675,
+     "gamma": 0.0,
+     "delta": -0.08673603938742694,
+     "eps": 0.002801969303480264
+    },
+    "rotation_error": [
+     0.011801969303480288,
+     0.012701969303480288,
+     0.0016019693034802804,
+     0.0016019693034802804,
+     0.0020019693034802805,
+     0.0009019693034802796,
+     0.00130196930348028,
+     0.00130196930348028,
+     0.0004019693034802791,
+     -0.0008980306965197217,
+     0.0017019693034802804,
+     0.0024019693034802807
+    ],
+    "contrast": [
+     0.98,
+     0.97,
+     0.98,
+     0.98,
+     0.975,
+     0.98,
+     0.97,
+     0.97,
+     0.97,
+     0.965,
+     0.97,
+     0.96
+    ],
+    "at_window_edge": false,
+    "p": {
+     "rotation_error": {
+      "dispersion": 0.000999000999000999,
+      "lag1_autocorrelation": 0.01898101898101898,
+      "trend_r2": 0.000999000999000999,
+      "cusum_peak": 0.017982017982017984
+     },
+     "contrast": {
+      "dispersion": 0.001998001998001998,
+      "lag1_autocorrelation": 0.1068931068931069,
+      "trend_r2": 0.08691308691308691,
+      "cusum_peak": 0.006993006993006993
+     }
+    },
+    "x100_vs_sin2_50eps_spearman": 0.5508805840706655
+   }
+  },
+  "tests": 32,
+  "alpha": 0.05,
+  "replicas": 1000,
+  "seed": 2026102703,
+  "flagged": [
+   "q22/rotation_error/dispersion",
+   "q4/rotation_error/dispersion",
+   "q4/rotation_error/trend_r2",
+   "q54/rotation_error/dispersion",
+   "q82/rotation_error/dispersion",
+   "q82/rotation_error/trend_r2"
+  ],
+  "HA_rotation_error_varies": true,
+  "HAt_rotation_error_time_order": true,
+  "HC_contrast_varies": false,
+  "HCt_contrast_time_order": false
+ }
+}
