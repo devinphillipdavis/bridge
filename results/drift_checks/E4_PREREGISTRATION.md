@@ -1,10 +1,16 @@
-# E4, pulse-amplitude test: pre-registration DRAFT
+# E4, pulse-amplitude test: pre-registration
 
-Status: **draft, not frozen.** Nothing on hardware has run.
+Status: **frozen 2026-10-27, before any E4 job** (E4a or E4b). Nothing in E4 had queried IBM Quantum or run on hardware.
 - **Values:** the proposed values (K, cadence, shots, S, α, the β bands, the Ramsey limit and the analysis seed) were approved by the human on 2026-10-27 ("approve the proposed values and build it").
-- **Built:** the code and tests are written, and E4-sim has run (results below).
-- **Details for review:** implementation details chosen by the agent during the build are listed under "Agent choices to review".
-- **Freezing means:** recording the SHA-256 of the final file (renamed `E4_PREREGISTRATION.md`), stamping it with OpenTimestamps, and pinning the code by hash.
+- **S2:** the human accepted H3 despite S2 failing its threshold ("accept S2, commit and push it").
+- **Agent choices:** the implementation details chosen by the agent during the build (listed under "Agent choices") were approved by the human on 2026-10-27. The same message ("approve the agent choices, freeze it and run E4") approved the freeze, E4b's duration (about 75 minutes, past the node horizon) and its QPU budget (about 150 s), and started E4a and E4b.
+
+How the freeze is recorded:
+- the SHA-256 of this file is the first row of `pulse_amplitude/ledger.jsonl`;
+- `E4_PREREGISTRATION.md.ots` holds an OpenTimestamps proof of the file;
+- the file and its proof are committed and pushed before E4a and E4b are started.
+
+The code is pinned by hash under "Code and environment (pinned)".
 
 ## Why
 
@@ -230,9 +236,9 @@ Recorded run: `results/drift_checks/pulse_amplitude/simulation/oc.json`. It took
   - **Model-based weights:** they behave like the smoothed weights now that readout is constrained. The smoothed weights are kept as a safeguard.
   - **A null without the walk:** H3's statistic standardises each increment by the walk fitted to the same series, so the null's walk size barely matters. That is what keeps H3 calibrated, and what the median version broke.
 
-## Agent choices to review
+## Agent choices
 
-These were chosen by the agent during the build. They are not among the approved values.
+These were chosen by the agent during the build. They were not among the values approved before the build; the human approved them on 2026-10-27 ("approve the agent choices, freeze it and run E4").
 - the control and simulation seeds (2026102802, 2026102803);
 - 200 series-level trials and 20 count-level trials;
 - the scenarios S3_one and S4_counts;
@@ -276,17 +282,29 @@ These are as in E3.
 - **5. Heron variance:** K = 30 ≥ 10.
 - **GEMINI.md:**
   - E4a and E4b call IBM Quantum, so the human must start them.
-  - E4b (about 75 minutes) is longer than the node horizon and needs explicit approval, as does its QPU budget (about 150 s). Neither has been given yet.
+  - E4b (about 75 minutes) is longer than the node horizon and needs explicit approval, as does its QPU budget (about 150 s). Both were approved on 2026-10-27 ("approve the agent choices, freeze it and run E4").
 
-## Before freezing
+## Steps to dispatch
 
 1. ~~The human approves the proposed values~~ (done 2026-10-27).
 2. ~~Implement `bridge/pulse_amplitude.py` and `tests/test_pulse_amplitude.py`~~ (done; 47 tests).
 3. ~~Run E4-sim and record its operating characteristics~~ (done; see above; **S2 failed its threshold**).
-4. ~~The human decides on S2~~ (accepted 2026-10-27). The human reviews the agent choices above.
-5. Freeze: rename this file `E4_PREREGISTRATION.md`, record its SHA-256, stamp it with `ots`, and pin the code hashes:
-   - `bridge/pulse_amplitude.py`;
-   - `bridge/drift_check.py`;
-   - `osiris_governance/telemetry.py`.
-6. The human approves E4b's duration and budget, then starts E4a and E4b:
-   `python -m bridge.pulse_amplitude hardware --key-file <key> --out results/drift_checks/pulse_amplitude --prereg results/drift_checks/E4_PREREGISTRATION.md --after results/drift_checks/amplitude/state.json`
+4. ~~The human decides on S2 and reviews the agent choices~~ (S2 accepted, agent choices approved, 2026-10-27).
+5. ~~Freeze~~ (this file, 2026-10-27).
+6. ~~The human approves E4b's duration and budget~~ (2026-10-27). E4a, then E4b, run from `bridge/`:
+   - `python -m bridge.pulse_amplitude retrospective --key-file <key> --out results/drift_checks/pulse_amplitude/retrospective --runs results/drift_checks/hardware results/drift_checks/amplitude`
+   - `python -m bridge.pulse_amplitude hardware --key-file <key> --out results/drift_checks/pulse_amplitude --prereg results/drift_checks/E4_PREREGISTRATION.md --after results/drift_checks/amplitude/state.json`
+
+## Code and environment (pinned)
+
+| file | sha256 |
+|---|---|
+| `bridge/pulse_amplitude.py` | `431602d8df176a406a35b023f8ef20f8cb3e2e74f023c12a35807853d98a8955` |
+| `bridge/drift_check.py` | `95b01edcf5ba54dce154236ba48cb386a1a073295b64f6568615b042219cbe60` |
+| `osiris_governance/telemetry.py` | `f805f8bd9871f87c7a5463071a6b28b52036a8fd04e5044b7b8f5e51d378a420` |
+
+**Repositories:**
+- bridge `c73c3bb` (code and tests committed in `255ca83`)
+- osiris-governance `e8a2eb3`
+
+**Versions:** Python 3.13.5, numpy 2.5.3, scipy 1.18.1, qiskit 2.5.2, qiskit-aer 0.17.2, qiskit-ibm-runtime 0.50.0.
