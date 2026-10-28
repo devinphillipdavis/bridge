@@ -1,10 +1,19 @@
-# E5, shared gain drift: pre-registration DRAFT
+# E5, shared gain drift: pre-registration
 
-Status: **draft, not frozen.** Nothing has been sent to IBM.
-- **Values:** approved by the human on 2026-10-28 ("approve the proposed values and build it"). Values marked "approved" below were the proposals; one E5-sim value was changed at the build, for the reason given under "Build".
-- **Built:** `bridge/gain_drift.py` and `tests/test_gain_drift.py` (see "Build"), then changed after E5-sim v1 (see "Changes after E5-sim v1"). Results are under "E5-sim v2 results"; v1's are kept.
-- **Open before the freeze:** the human's review of E5-sim v2 (R_min = 5 mrad, every check passing), of Cochran's false-heterogeneity rate and of the agent's build choices; then setting `r_min_rad`.
-- **Freezing means:** recording the SHA-256 of the final file (renamed `E5_PREREGISTRATION.md`), stamping it with OpenTimestamps, pinning the code by hash, and committing it before any E5 job.
+Status: **frozen 2026-10-28, before any E5 job** (E5 or E5a). Nothing in E5 had queried IBM Quantum or run on hardware.
+- **Values:** the proposed values were approved by the human on 2026-10-28 ("approve the proposed values and build it"). Values marked "approved" below were the proposals; one E5-sim value was changed at the build, for the reason given under "Build".
+- **Changes after E5-sim v1:** the human chose options 2 and 3 on 2026-10-28 ("do 2 and 3 and rerun the simulation"). H3 is the loadings test, and γ is refitted jointly with the per-job values.
+- **Cochran:** the human accepted, without a tolerance, Cochran's false-heterogeneity rate in E5-sim v2 (0.26 of S1's trials) ("accept Cochran, set r_min_rad and freeze it").
+- **R_min:** the same message set `r_min_rad` in `E5Design` to 0.005 rad, E5-sim v2's R_min. That one line is the only difference from the code E5-sim v2 ran (see "Code and environment (pinned)").
+- **Agent choices:** the choices listed under "Agent's choices (for review)" are frozen as built. The human asked for no change to them.
+- **Not yet approved:** E5's duration (about 4 hours, capped at 8, past the node horizon) and its QPU budget (about 120 s). The human approves both by starting E5.
+
+How the freeze is recorded:
+- when E5 starts, `hardware` writes the SHA-256 of this file and the code hashes into the `preregistration` row of `gain_drift/ledger.jsonl`, and `resume` refuses changed code;
+- `E5_PREREGISTRATION.md.ots` holds an OpenTimestamps proof of the file;
+- the file and its proof are committed and pushed before any E5 job.
+
+The code is pinned by hash under "Code and environment (pinned)".
 
 ## Why
 
@@ -101,7 +110,7 @@ Every test uses S draws and α = **0.05** (approved). The hypotheses are evaluat
 | **H3** (fully common) | equal increments in radians | **Loadings test** (made confirmatory on 2026-10-28; see "Changes after E5-sim v1"). Each qubit's deviation from the common increment, projected on the common increment: L = Σ_{q∈P} w_q [Σ_k (Δε_{q,k} − Δε̄_k) Δε̄_k]² / Σ_k Δε̄_k², with w_q = 1/v_q. Null: the replicas' deviations from their own common increment, projected on the observed Δε̄_k, i.e. "fully common, along the observed path". **Rejected** (not fully common) if flagged at α. Loadings κ_q (each qubit's increments regressed on the leave-one-out mean) are reported. |
 | **H4** (smooth) | the common component has no steps | E4's H3 jump test (Gaussian walk with drift, max\|z\| statistic, parametric-bootstrap null), applied to the common series ε̄_k, with variances from the replicas. Flagged at α. |
 
-**Power condition for H3.** "Not rejected" counts as support only if the common series moved by at least **R_min** over the run, measured as the range of ε̄_k. R_min is the smallest common range at which E5-sim gives H3 a power of at least 0.80 against loadings spread uniformly over [0.5, 1.5]. It is set from E5-sim before the freeze. (This draft first expected about 2 mrad; that was wrong, see "Build".) Below R_min, H3 is reported as **underpowered**.
+**Power condition for H3.** "Not rejected" counts as support only if the common series moved by at least **R_min** over the run, measured as the range of ε̄_k. R_min is the smallest common range at which E5-sim gives H3 a power of at least 0.80 against loadings spread uniformly over [0.5, 1.5]. E5-sim v2 set it at **5 mrad** (`r_min_rad` = 0.005; see "E5-sim v2 results"). (The draft first expected about 2 mrad; that was wrong, see "Build".) Below R_min, H3 is reported as **underpowered**.
 
 **Secondary (reported, not judged):**
 - Per-qubit jump tests (E4's H3, with Holm), naming single-qubit events.
@@ -183,11 +192,11 @@ As in E3 and E4:
 - **GEMINI.md:**
   - E5 and E5a call IBM Quantum, so the human must start them.
   - E5 (about 4 hours, capped at 8) is longer than the node horizon and needs explicit approval, as does its QPU budget (about 120 s, about half of what remains).
-  - The bands, thresholds and sizes above were approved on 2026-10-28. R_min and the agent's build choices still need review.
+  - The bands, thresholds and sizes above were approved on 2026-10-28. R_min (5 mrad) was set and the design frozen on 2026-10-28; the agent's build choices are frozen as built.
 
 ## Considered, not included
 
-- **A programmed gain change as a positive control.** Heron's fractional `rx(θ)` gates could inject a known gain change (RX(π − η) and RX(π/2 − η/2)) and measure β's bias on hardware. Whether ibm_fez exposes them on the open plan, at which angles, and how they are calibrated against X and √X is unverified. Finding out needs an IBM query (0 QPU-seconds) that the human would start. It can be added before the freeze if wanted.
+- **A programmed gain change as a positive control.** Heron's fractional `rx(θ)` gates could inject a known gain change (RX(π − η) and RX(π/2 − η/2)) and measure β's bias on hardware. Whether ibm_fez exposes them on the open plan, at which angles, and how they are calibrated against X and √X is unverified. Finding out needs an IBM query (0 QPU-seconds) that the human would start. It was not added before the freeze.
 - **More shots per job.** At about 5 s per job, the budget favours more jobs over more shots.
 - **New circuits.** E4's circuits and estimator are tested and pinned. Changing them would need the estimator re-validated.
 
@@ -203,7 +212,7 @@ As in E3 and E4:
 | gate | ε dispersion flagged on at least 3 qubits of P |
 | H1 band | [0.30, 0.75], with Cochran's Q homogeneity at α |
 | H5 frequency limit | 200 kHz on max\|Δf\|, plus the increments' Spearman correlation |
-| H3 power condition | R_min from E5-sim (power ≥ 0.80 against loadings in [0.5, 1.5]) |
+| H3 power condition | R_min from E5-sim (power ≥ 0.80 against loadings in [0.5, 1.5]); 5 mrad from E5-sim v2 |
 | budget | start ≥ 150 s; stop below 20 s |
 | seeds | analysis 2026102901; control 2026102902; scenarios 2026102903 |
 | E5-sim | the scenarios and thresholds above; count level; 50 trials; 500 replicas (changed at the build to 1000: see "Build") |
@@ -411,6 +420,8 @@ So E5 as now built would support a truly fully common gain in 0.70 of trials, ag
 - 0.46 of the 12 mrad and 0.64 of the 16 mrad straight-line trials;
 - 0.98 of S4's, where it should, since S4 draws β per qubit.
 
+**Decision:** the human accepted this rate on 2026-10-28 ("accept Cochran, set r_min_rad and freeze it"). Option 4, a tolerance on H1's homogeneity, was not applied, so Cochran's test stays as built and first in the reading table.
+
 **What the joint γ changed.** Per-trial results moved: the spread test's p differs from v1 in 28 of S1's 50 trials, and Cochran's p by up to 0.7 decades. The rates at α did not move (spread test 0.16, Cochran 0.26 in both runs). This fits the build check: the β spread in S1 comes from E3's misfit, not from γ.
 
 **Other observations:**
@@ -421,14 +432,38 @@ So E5 as now built would support a truly fully common gain in 0.70 of trials, ag
 
 **Approved consequence.** Every check passes, so nothing is triggered.
 
-## Before freezing
+## Steps to dispatch
 
 1. ~~The human approves the proposed values, or changes them.~~ Done 2026-10-28.
 2. ~~Implement `bridge/gain_drift.py` and `tests/test_gain_drift.py`, catching planted bugs as for E4.~~ Done 2026-10-28 (see "Build").
 3. ~~Run E5-sim, record its operating characteristics, and set R_min.~~ Done 2026-10-28. v1: R_min = 10 mrad, and S1's H3 check failed. After options 2 and 3, v2: R_min = 5 mrad, and every check passes (see "E5-sim v2 results").
-4. The human reviews E5-sim v2, Cochran's false-heterogeneity rate and the agent's build choices, and decides whether to change anything before the freeze. A change to code or tests means rerunning the tests, the planted bugs and E5-sim. Then set `r_min_rad` in `E5Design`. It is still `None` in the built code, so H3 currently always reads as underpowered. Setting it changes `gain_drift.py`'s hash from the one E5-sim v2 ran under; the frozen file should record both, and that this one value is the only difference.
-5. Freeze: rename this file `E5_PREREGISTRATION.md`, record its SHA-256, stamp it with `ots`, pin the code hashes, commit and push.
+4. ~~The human reviews E5-sim and the agent's build choices, and decides whether to change anything.~~ Done 2026-10-28. After v1: options 2 and 3 applied, then the tests, the planted bugs and E5-sim were rerun. After v2: Cochran's rate accepted, `r_min_rad` set to 0.005.
+5. ~~Freeze.~~ This file, 2026-10-28.
 6. The human approves E5's duration and budget and starts it:
    `python -m bridge.gain_drift hardware --key-file <key> --out results/drift_checks/gain_drift --prereg results/drift_checks/E5_PREREGISTRATION.md --after results/drift_checks/pulse_amplitude/state.json`
    then, after it finishes, E5a:
    `python -m bridge.gain_drift retrospective --key-file <key> --out results/drift_checks/gain_drift/retrospective --run results/drift_checks/gain_drift`
+
+## Code and environment (pinned)
+
+| file | sha256 |
+|---|---|
+| `bridge/gain_drift.py` | `eb47c54952db3232ec46f5984703d07f2e0a1945d15dcd97db8e21934cc61c22` |
+| `bridge/pulse_amplitude.py` | `431602d8df176a406a35b023f8ef20f8cb3e2e74f023c12a35807853d98a8955` (E4's pinned hash, unchanged) |
+| `bridge/drift_check.py` | `95b01edcf5ba54dce154236ba48cb386a1a073295b64f6568615b042219cbe60` |
+| `osiris_governance/telemetry.py` | `f805f8bd9871f87c7a5463071a6b28b52036a8fd04e5044b7b8f5e51d378a420` |
+
+These are `gain_drift.code_hashes()`. `hardware` writes them into the `preregistration` row, and `resume` refuses to run if they differ.
+
+**E5-sim v2 ran under an earlier `gain_drift.py`,** sha256 `cff696133d8adef89853206822e2b2f3c1a6e1e2c27e723f64f1ec3a163e9b2e` (bridge `955ca89`). The frozen file differs from it in one line, the default of `r_min_rad` (`None` → `0.005`), committed in bridge `5bee5a9`.
+- `r_min_rad` only sets H3's "underpowered" flag, and `summarize` recomputes that flag from the walk grid.
+- Four stored E5-sim v2 trials were re-simulated with the frozen code: S1 trial 0, S7 trial 0, and S3 walk 5 mrad trials 31 and 44, whose common ranges lie just either side of 5 mrad. Each matched its stored row exactly once R_min is applied, as `summarize` applies it.
+- The one test that relied on the old default now sets `r_min_rad=None` explicitly. On the frozen code, 58 tests pass and all 43 planted bugs are caught.
+
+E5-sim v1 ran under `5b7efb7de942680c018edf21582f0dfd863c5d110ed3574e27deb59409624a37`, which was never committed; it is superseded.
+
+**Repositories:**
+- bridge `5bee5a9` (code and tests first committed in `955ca89`; the draft and E5-sim in `aeb76d2`)
+- osiris-governance `e8a2eb3`
+
+**Versions:** Python 3.13.5, numpy 2.5.3, scipy 1.18.1, qiskit 2.5.2, qiskit-aer 0.17.2, qiskit-ibm-runtime 0.50.0.
