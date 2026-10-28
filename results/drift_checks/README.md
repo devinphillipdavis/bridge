@@ -139,16 +139,88 @@ So the rotation error accounts for most of the *change* in `x100`, but not for a
 
 **What this means for operational directive 5.** For long single-qubit gate sequences, a between-job model needs a rotation error for each job. A term for readout or contrast alone would not capture the variation seen here.
 
+## E4: pulse-amplitude test, ibm_fez, submitted 2026-10-27 22:45–23:58Z, run 2026-10-28 00:16–00:37Z
+
+Pre-registration: [`E4_PREREGISTRATION.md`](E4_PREREGISTRATION.md), sha256 `7e20ee97bdff…ae07`, with its OpenTimestamps proof. It was frozen and pushed (`7be9176`) before any E4 job. Code: `bridge/pulse_amplitude.py` (`431602d8df17…8955`), pinned by hash in the pre-registration and in the ledger's first row.
+
+- **Runs:** 30 of 30 jobs finished, using 150 QPU-seconds. Qubits 4, 22, 54 and 82 (E3's) plus 144, 24, 14 and 71, chosen by `choose_extras`. Each job ran 12 circuits with 1000 shots each. The Ramsey delay was 200 ns.
+- **Timing:** jobs were submitted 150 s apart, but IBM queued all 30. They ran between 00:16:48 and 00:36:33Z, 4–209 s apart (median 18 s). The analysis uses execution times, as pre-registered. All 29 intervals were 300 s or shorter, so H3 was not underpowered.
+- **Ledger:** `pulse_amplitude/ledger.jsonl` verifies (122 rows). A `calibration-snapshot` row precedes every `submit-intent`. The rows are unsigned.
+- **Software control** (`pulse_amplitude/control.json`, before dispatch): the constant control flagged nothing (H4 p = 0.51), so dispatch was allowed.
+- **Hardware:** S = 2000 replicas, with Holm's correction at family-wise error 0.05. The smallest possible p is 1/2001 ≈ 0.0005.
+
+| hypothesis | result |
+|---|---|
+| H1: ε_k dispersion flagged on at least one qubit | **TRUE**, on 7 of 8 qubits. Qubit 71 is not flagged (p = 0.0085 against a Holm bar of 0.0071). |
+| HC (reported): a_k dispersion flagged | **TRUE**, on qubits 4 and 22 |
+| H2: β = Δδ/Δε, pooled over the 7 flagged qubits | **0.438**, 95% interval [0.373, 0.504]: the **gain** region |
+| H2F: frequency does not drive ε | **fails on qubits 24 and 82**; passes on 4, 14, 22, 54 and 144 |
+| H3: jumps beyond a smooth drift | **TRUE**, on qubit 82 only (max\|z\| = 4.29, p = 0.0005), between jobs 18 and 19 |
+| H4: the changes are shared across qubits | **TRUE**: the mean pairwise correlation of ε increments is 0.116, p = 0.0045. The coincidence test did not apply, because H3 flagged one qubit. |
+
+**Pre-registered reading** (`pulse_amplitude.reading`): "step changes in a shared gain, or a joint x and sx re-tune; H2F falsifies amplitude on qubits [24, 82]". So the amplitude hypothesis is supported with its mechanism open, except on qubits 24 and 82, where the frequency test falsifies it. [OBSERVED]
+
+| qubit | pooled ε (rad) | pooled δ (rad) | ε_k range | ε_k SD ÷ measurement SD | a_k range | p: ε disp / a disp | H2 β (weight share) | max\|Δf\| (kHz) | Spearman Δf vs ε_k (p) | `x100` errors, median of 1000 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 4 | +0.0059 | +0.0016 | +0.0034 to +0.0093 | 2.4 | 0.887–0.993 | 0.0005 / 0.0005 | 1.46 (0.00) | 118 | +0.26 (0.16) | 183 |
+| 22 | +0.0021 | +0.0001 | −0.0001 to +0.0040 | 1.9 | 0.978–0.999 | 0.0005 / 0.0010 | 0.31 (0.05) | 51 | +0.36 (0.050) | 97 |
+| 54 | +0.0117 | +0.0042 | +0.0098 to +0.0132 | 1.9 | 0.977–0.993 | 0.0005 / 0.22 | 0.73 (0.06) | 50 | −0.14 (0.49) | 524 |
+| 82 | +0.0017 | −0.0017 | −0.0022 to +0.0056 | 4.8 | 0.975–0.993 | 0.0005 / 0.40 | 0.41 (0.73) | 223 | +0.64 (0.0005) | 119 |
+| 144 | +0.0049 | +0.0021 | +0.0034 to +0.0062 | 1.5 | 0.983–0.997 | 0.0010 / 0.60 | 0.17 (0.03) | 56 | +0.11 (0.55) | 190 |
+| 24 | +0.0021 | +0.0039 | +0.0002 to +0.0038 | 1.9 | 0.980–0.997 | 0.0005 / 0.095 | 0.58 (0.06) | 56 | −0.47 (0.006) | 122 |
+| 14 | +0.0056 | +0.0024 | +0.0033 to +0.0071 | 1.9 | 0.989–0.998 | 0.0005 / 0.90 | 0.58 (0.07) | 72 | −0.04 (0.85) | 230 |
+| 71 | +0.0064 | −0.0003 | +0.0046 to +0.0076 | 1.3 | 0.984–0.997 | 0.0085 / 0.58 | — | — | — | 291 |
+
+Pooled γ sits at its lower bound 0 on all eight qubits. Measurement SDs of ε_k are 0.0005–0.0006 rad. Ramsey Δf is relative to each qubit's run mean.
+
+**What moved** [OBSERVED]:
+- **ε varies between jobs on seven of eight qubits,** by 1.5–4.8 times its measurement SD, and the X gate over-rotates on all eight (pooled ε +0.0017 to +0.0117 rad).
+- **Qubit 82 stepped once,** between job 18 (ending 00:33:31Z) and job 19 (starting 00:33:57Z). Medians of jobs 1–18 against jobs 19–30:
+  - ε: −0.0006 → +0.0048 rad, so \|ε\| grew;
+  - δ: −0.0026 → −0.0006 rad;
+  - Ramsey frequency: −133 → +207 kHz, a step of about 340 kHz;
+  - `x100` errors: 85 → 235 per 1000.
+- **Qubit 4's readout of \|1⟩ degraded from job 6** (about 00:19:40Z). The \|1⟩ error e1 = 1 − c − a/2 rose from 0.003–0.010 in jobs 1–5 to 0.018–0.108, while e0 stayed below 0.007. This is HC's flag on qubit 4. Qubit 22's contrast flag reflects a small spread (0.978–0.999).
+- **√X:** with E4's √X ladders, pooled δ is within ±0.005 rad on all eight qubits. E3 reported δ of −0.04 to −0.09 rad from a design whose δ had a Fisher SD of 0.012 rad and absorbed the static misfit (groundwork G2, G3). E4's values supersede it as a measure of δ.
+
+**Secondary checks** (pre-registered, reported, not judged):
+- **\|ε\| across the flagged jump:** it grew on qubit 82 (0.0004 → 0.0049 rad), against the re-tune prediction that a re-tune moves ε toward zero.
+- **Calibration snapshots dated inside qubit 82's jump interval:** none. But the snapshots were taken at submission (22:45–23:58Z), before any job ran, so they cannot show an entry dated in the execution window (see Deviations). Across the 30 snapshots, no recorded field on any of the eight qubits changed. The backend-wide `last_update_date` moved twice, to 22:50:54 and 23:19:32Z.
+- **E4a** (`pulse_amplitude/retrospective/`, 0 QPU-seconds): the dated properties query works and returned different property sets over E2 and E3. For qubits 4, 22, 54 and 82 no recorded field changed or was dated inside either change interval (`dated_inside` is empty for both). Only the backend-wide `last_update_date` moved, from 16:17:30 to 16:50:32Z, which falls inside E3's change interval. In E2 it moved from 14:41:17 to 14:52:51Z between jobs 5 and 6, outside E2's interval. E2's `x100` rise over jobs 15–20 came under one unchanged set of reported properties.
+- **Residual pattern (G2 repeated):** the mean residual z per circuit is within ±1.6 on every qubit, with the same signs on all eight (`amp16`, `amp32` and `sx17` low; `amp48` and `sx49` high). The SD across jobs is 0.4–1.2 on the gate circuits, near shot noise. Qubit 54, whose pattern was not static in E3, is static here.
+
+**Post hoc checks** (not pre-registered) [OBSERVED]:
+- **Qubit 82 carries 73% of H2's pooled weight.** Pooled the same way without it, β = 0.508; without qubits 82 and 24, β = 0.488. Per-qubit β on the five qubits that pass H2F is 0.17–0.73 (qubit 4's 1.46 has weight ≈ 0).
+- **H4 without qubit 82:** mean correlation 0.114, p = 0.018. This uses the same function and seed with a fresh generator, which gives p = 0.007 for all eight qubits against the recorded 0.0045.
+- **What H2F's failures detect.** On qubit 82, ε and frequency step at the same interval, and the rank correlation registers that coincidence.
+  - Under the pre-registration's square-pulse derivation (32 ns X assumed), a 340 kHz shift changes ε by 5 mrad only if qubit 82 was already about 1 MHz off resonance [DERIVED]. Ramsey here measures only changes in frequency, so that cannot be checked.
+  - Qubit 82's β (about 0.4) is near gain's 0.5, not detuning's 2.
+  - On qubit 24 the frequency moved by at most 56 kHz, too little to change ε through detuning unless the qubit was more than about 1 MHz off resonance [DERIVED]. A slow trend shared by both series would give the same correlation, and the pre-registered test does not remove one.
+
+**Interpretation** [HYPOTHESIS]:
+- **On the pre-registered reading,** E4 supports the amplitude hypothesis with its mechanism open, and falsifies it on qubits 24 and 82.
+- **With the post hoc checks,** the five qubits that pass H2F show correlated ε changes, a ratio near gain's 0.5 (0.49–0.51 pooled; E4-sim's count-level runs read a true 0.5 as about 0.45) and no jumps. That is the pattern pre-registered for a shared analog gain drift. It is post hoc and not judged here; testing it needs a new pre-registration.
+- **Qubit 82's step is a separate event:** a simultaneous change in one qubit's frequency and rotation error, with \|ε\| growing and no reported property change in snapshots that predate it. A two-level-system defect near qubit 82 or a recalibration of that qubit alone would both fit; E4 cannot tell them apart [INCONCLUSIVE].
+- **E4 did not see a shared drop like E3's** (0.005–0.011 rad). Outside qubit 82, the ε_k SD is 0.0007–0.0015 rad.
+
+**What this means for operational directive 5.** As in E3, a between-job model for single-qubit gate sequences needs a rotation error for each job. Qubit 4 shows that readout can also change within 20 minutes, so a term for each job's readout is needed too.
+
 ## Deviations and disclosures
 
 - **E2 interim look.** At about 15:40Z, 6 jobs into E2, I took a read-only, descriptive look at the finished jobs. It wrote nothing and changed nothing in the plan or the analysis. It is not in the pre-registration.
 - **No E3 interim look.** During E3 I read only job status. I first looked at E3 counts at 17:36Z, after the run and its analysis had finished.
 - **E3 queueing.** IBM queued jobs 3–8, so they ran within two minutes of each other rather than 300 s apart.
 - **E3 post hoc check.** The `x100` prediction check above was added after the results were in. It is labelled as post hoc and did not change any hypothesis.
-- **Unsigned ledger.** The ledger rows in both hardware runs are hash-chained but unsigned, which deviates from directive 4. They need a signature from an enrolled node key.
+- **No E4 interim look.** During E4b I read only job status: the submission log and the ledger's row kinds. The user asked twice what E4 showed while it ran; I did not look. I first read E4 results at about 00:38Z, after the run and its analysis had finished.
+- **E4 queueing.** IBM queued all 30 jobs, so they ran 4–209 s apart within 20 minutes, rather than 150 s apart over 75 minutes. The pre-registration's Limits anticipated queueing; H3 needed 15 intervals of 300 s or less and had 29.
+- **E4 calibration snapshots predate execution.** The snapshots were taken before each submission, as pre-registered, but the jobs ran 39–91 minutes later. So they do not cover the execution window, and the secondary check of dates inside qubit 82's jump interval is uninformative. A design for a queued backend would need snapshots at execution time.
+- **E4 field name.** `abs_eps_before_after` in `analysis.json` holds the *signed* ε values before and after the jump. `abs_eps_decreased` compares their absolute values, correctly.
+- **E4 post hoc checks.** The weight shares, β and H4 without qubits 82 and 24, the step medians on qubit 82, qubit 4's readout errors and the detuning arithmetic were added after the results were in. They are labelled as post hoc and do not change the pre-registered reading.
+- **Unsigned ledger.** The ledger rows in all three hardware runs are hash-chained but unsigned, which deviates from directive 4. They need a signature from an enrolled node key.
 - **Base rates.** E1's base rates (0.5% and 2%) are above E2's readout error rates (0.1–0.4%). E1's operating characteristics therefore apply only approximately to the readout series.
-- **QPU budget.** E2 used 100 s and E3 96 s, so 196 s of the open plan's 600 s per 28 days.
+- **QPU budget.** E2 used 100 s, E3 96 s and E4 150 s, so 346 s of the open plan's 600 s per 28 days. The account reported 398 s remaining at E4b's start (6 s fewer than 600 − 196), so about 248 s should remain.
 - **Agent rules.**
   - E2 used IBM Quantum, lasted about 95 minutes, and its thresholds were chosen by the agent. The user asked for the run and approved letting it continue past the node horizon.
   - E3 was requested in the user's own words. With its software control, it ran about 70 minutes, past the node horizon, as flagged in its pre-registration.
+  - E4's values, the agent's build choices, its duration (about 110 minutes from submission to analysis, past the node horizon) and its QPU budget were approved by the user before the freeze. The user started E4a and E4b ("approve the agent choices, freeze it and run E4").
   - The thresholds still need the human's review: α and the 0.80 and 0.50 in E2's predictions, and the replica count and control step sizes in E3's.
