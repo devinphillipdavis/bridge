@@ -299,8 +299,9 @@ Pre-registration: [`E5_PREREGISTRATION.md`](E5_PREREGISTRATION.md), sha256 `aedd
 - **E5 post hoc check.** The comparison of pooled ε with E4 was added after the results were in. It is labelled as post hoc and does not change the reading.
 - **Unsigned ledger.** The ledger rows in all four hardware runs (E2–E5) are hash-chained but unsigned, which deviates from directive 4. They need a signature from an enrolled node key.
   - [`ATTESTATION_E2-E4.json`](ATTESTATION_E2-E4.json), written on 2026-10-28 after the runs by `python -m bridge.attest build`, binds each run's pre-registration hash, ledger (SHA-256, rows, final chain hash), telemetry head and every file in its folder.
-  - It is unsigned until the holder of an enrolled node key runs `python -m bridge.attest sign`, which writes `ATTESTATION_E2-E4.json.sig`. `python -m bridge.attest verify` checks the signature and recomputes every hash.
-  - A signature on it is retrospective. It shows that the key holder vouched for these files when signing, not that any row was signed while its job ran or that no row is missing.
+  - [`ATTESTATION_E5.json`](ATTESTATION_E5.json), built the same way after E5's results were committed (`6854e80`), covers E5's ledger (99 rows), its telemetry and the 168 files in `gain_drift/`, E5-sim included.
+  - Both are unsigned until the holder of an enrolled node key runs `python -m bridge.attest sign` on each, which writes `<manifest>.sig`. `python -m bridge.attest verify` checks the signature and recomputes every hash.
+  - A signature on either is retrospective. It shows that the key holder vouched for these files when signing, not that any row was signed while its job ran or that no row is missing.
 - **Base rates.** E1's base rates (0.5% and 2%) are above E2's readout error rates (0.1–0.4%). E1's operating characteristics therefore apply only approximately to the readout series.
 - **QPU budget.** E2 used 100 s, E3 96 s and E4 150 s, so 346 s of the open plan's 600 s per 28 days. The account reported 398 s remaining at E4b's start (6 s fewer than 600 − 196), so about 248 s should remain. E5 used 95 s: the account reported 248 s at its start and 158 s before its last job, so about 153 s should remain.
 - **Agent rules.**
