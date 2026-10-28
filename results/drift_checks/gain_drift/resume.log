@@ -1,0 +1,13 @@
+qiskit_runtime_service._discover_account:WARNING:2026-10-28 22:41:23,126: Loading account with the given token. A saved account will not be used.
+qiskit_runtime_service.__init__:WARNING:2026-10-28 22:42:02,191: Instance was not set at service instantiation. Free and trial plan instances will be prioritized. Based on the following filters: (tags: None, region: us-east, eu-de), and available plans: (open), the available account instances are: open-instance. If you need a specific instance set it explicitly either by using a saved account with a saved default instance or passing it in directly to QiskitRuntimeService(). Alternatively, pass instance='auto' or save it to your account for auto-selection without warning.
+qiskit_runtime_service.backends:WARNING:2026-10-28 22:42:04,878: Using instance: open-instance, plan: open
+submissions stopped: wall-clock cap
+{
+ "jobs_submitted": 19,
+ "jobs_lost": 0,
+ "jobs_done": 19,
+ "jobs_pending": [],
+ "stopped": "wall-clock cap",
+ "qpu_seconds": 95,
+ "long_intervals": 15
+}

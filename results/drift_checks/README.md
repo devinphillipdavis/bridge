@@ -205,6 +205,82 @@ Pooled γ sits at its lower bound 0 on all eight qubits. Measurement SDs of ε_k
 
 **What this means for operational directive 5.** As in E3, a between-job model for single-qubit gate sequences needs a rotation error for each job. Qubit 4 shows that readout can also change within 20 minutes, so a term for each job's readout is needed too.
 
+## E5: shared gain drift, ibm_fez, run 2026-10-28 14:52–18:58Z
+
+Pre-registration: [`E5_PREREGISTRATION.md`](E5_PREREGISTRATION.md), sha256 `aedd81f17bf2…c89a`, with its OpenTimestamps proof. It was frozen and pushed (`55dbfb9`) before any E5 job. Code: `bridge/gain_drift.py` (`eb47c54952db…1c22`), pinned by hash in the pre-registration and in the ledger's first row; `resume` checked the hashes again before continuing.
+
+- **Runs:** 19 of the planned 24 jobs finished, using 95 QPU-seconds. There were 16 qubits: E4's eight (4, 22, 54, 82, 144, 24, 14, 71), plus 50, 146, 85, 124, 154, 10, 75 and 118, chosen by `choose_extras`. Each job ran E4's 12 circuits with 1000 shots each.
+- **Why 19:** the process died at about 18:58Z with job 19 in flight (see Deviations). At 22:39Z, `resume` fetched job 19's result. The 8-hour submission cap had passed at 22:28:23Z, so `resume` stopped submissions ("wall-clock cap") and ran the analysis. The pre-registered minimum was 16 jobs and 12 intervals of 300 s or more; E5 had 19 jobs and 15 such intervals.
+- **Timing:** jobs ran between 14:52:50 and 18:58:31Z, 1 to 67 minutes apart, start to start. The analysis uses execution times, as pre-registered.
+- **Ledger:** `gain_drift/ledger.jsonl` verifies (99 rows). A `calibration-snapshot` row precedes every `submit-intent`, and another follows every result. The rows are unsigned.
+- **Software control** (`gain_drift/control.json`, before dispatch): no flags, so dispatch was allowed. ibm_fez was operational, and the account reported 248 QPU-seconds at the start.
+- **Hardware:** S = 2000 replicas, analysis seed 2026102901, α = 0.05.
+
+| test | result |
+|---|---|
+| Gate: ε dispersion flagged on at least 3 qubits of P | **TRUE**, on all 16 qubits, including all 8 of P |
+| H5 (frequency exclusion) | **qubit 82 fails**: max\|Δf\| = 319 kHz, against 200 kHz. No qubit's Spearman correlation of ΔΔf with Δε survives Holm's correction (smallest p = 0.015, qubit 82). |
+| HC (contrast exclusion) | **7 qubits fail**: 4, 10, 22, 50, 85, 118 and 144 |
+| Primary set P | 14, 24, 54, 71, 75, 124, 146 and 154 |
+| H1: gain ratio β, pooled over P | **0.454**, 95% interval [0.426, 0.477]: the **gain** region. **Not homogeneous**: Cochran's Q = 18.6 on 7 df, p = 0.0095. |
+| H2: increments shared | **TRUE**: the mean pairwise uncentred correlation of Δε is 0.812, p = 0.0005 |
+| H3: increments equal in radians (fully common) | **Rejected**: L = 21.8, p = 0.0005. The common range is 7.9 mrad, above R_min (5 mrad), so the test is not underpowered. Loadings κ: 0.71–1.24. |
+| H4: the common component has steps | **Not flagged**: max\|z\| = 1.67, p = 0.91 |
+
+**Pre-registered reading** (`gain_drift.reading`): "gain-like on average, but beta differs between qubits: re-tunes or mixed mechanisms; excluded by H5: qubits [82]; excluded by HC: qubits [4, 10, 22, 50, 85, 118, 144]". The reading's rows apply in order and it stops at the first match, so H2–H4 do not enter it. [OBSERVED]
+
+**The reading turns on Cochran's test.** In E5-sim v2, Cochran's test falsely rejected homogeneity in 0.26 of S1's trials, where the gain is fully common, because of E3's misfit. The human accepted that rate, without a tolerance, before the freeze. So the step that sets this reading has a known false-rejection rate about five times its nominal α. The reading stands as pre-registered.
+
+| qubit | set | pooled ε (rad) | pooled δ (rad) | ε_k range | ε_k SD ÷ measurement SD | a_k range | β (all 16) | loading κ | net change in ε (mrad) | max\|Δf\| (kHz) | `x100` errors, median of 1000 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 4 | HC | +0.0091 | +0.0029 | +0.0045 to +0.0129 | 4.4 | 0.871–0.998 | 0.29 | — | — | 92 | 370 |
+| 10 | HC | +0.0101 | +0.0039 | +0.0049 to +0.0143 | 5.2 | 0.954–0.994 | 0.44 | — | — | 77 | 486 |
+| 14 | P | +0.0089 | +0.0034 | +0.0045 to +0.0137 | 5.5 | 0.988–0.998 | 0.38 | 1.14 | −1.0 | 46 | 373 |
+| 22 | HC | +0.0036 | +0.0012 | −0.0006 to +0.0071 | 4.6 | 0.983–0.998 | 0.48 | — | — | 46 | 157 |
+| 24 | P | +0.0031 | +0.0043 | −0.0018 to +0.0060 | 3.9 | 0.985–0.996 | 0.49 | 0.76 | −3.9 | 55 | 174 |
+| 50 | HC | +0.0097 | +0.0023 | +0.0052 to +0.0138 | 5.2 | 0.980–0.998 | 0.47 | — | — | 57 | 422 |
+| 54 | P | +0.0135 | +0.0050 | +0.0087 to +0.0178 | 4.5 | 0.983–0.995 | 0.43 | 1.03 | −4.0 | 53 | 570 |
+| 71 | P | +0.0068 | +0.0003 | +0.0035 to +0.0104 | 3.8 | 0.978–0.996 | 0.32 | 0.77 | −1.6 | 53 | 303 |
+| 75 | P | +0.0019 | +0.0029 | −0.0023 to +0.0054 | 4.3 | 0.979–0.994 | 0.48 | 0.97 | −2.7 | 56 | 125 |
+| 82 | H5 | +0.0046 | −0.0007 | −0.0015 to +0.0103 | 6.5 | 0.977–0.994 | 0.50 | — | — | 319 | 202 |
+| 85 | HC | +0.0039 | +0.0026 | −0.0005 to +0.0078 | 4.2 | 0.979–0.996 | 0.48 | — | — | 53 | 236 |
+| 118 | HC | +0.0073 | +0.0033 | +0.0033 to +0.0111 | 4.5 | 0.958–0.992 | 0.54 | — | — | 52 | 440 |
+| 124 | P | +0.0124 | +0.0046 | +0.0068 to +0.0167 | 5.0 | 0.986–0.996 | 0.58 | 1.24 | −3.7 | 49 | 615 |
+| 144 | HC | +0.0061 | +0.0029 | −0.0000 to +0.0095 | 4.7 | 0.941–0.995 | 0.44 | — | — | 48 | 231 |
+| 146 | P | +0.0098 | +0.0056 | +0.0039 to +0.0139 | 5.3 | 0.988–0.997 | 0.58 | 1.14 | −4.4 | 63 | 437 |
+| 154 | P | +0.0073 | +0.0028 | +0.0026 to +0.0108 | 4.0 | 0.984–0.997 | 0.45 | 0.71 | −3.0 | 72 | 337 |
+
+β per qubit is from the all-16 repeat; on P's eight qubits it is identical. γ is 0 on all 16 qubits, both pooled and refitted jointly. `analysis.json` holds every per-job value.
+
+**What moved** [OBSERVED]:
+- **ε varies between jobs on all 16 qubits,** by 3.8–6.5 times its measurement SD, and the X gate over-rotates on all 16 (pooled ε +0.0019 to +0.0135 rad).
+- **The common component** (P's precision-weighted mean increment, summed) fell to −6.2 mrad by job 8 (16:52Z), returned to +0.3 mrad by job 14 (18:06Z), and fell to −7.6 mrad by job 19 (18:58Z). Its increments vary 40.7 times as much as measurement noise allows. After removing it, each qubit's increments vary 0.54–1.82 times measurement noise.
+- **ε ended lower than it started on all 8 qubits of P,** by 1.0–4.4 mrad.
+- **No per-qubit jump test is flagged,** and no interval of the common series moved by more than 3 robust SDs of its own increments.
+- **Contrast varied on 7 qubits** (HC). Qubit 4's a_k ranged 0.871–0.998, as its |1⟩ readout had in E4.
+- **Qubit 82's frequency** moved by up to 319 kHz. In E4 it stepped by about 340 kHz.
+
+**Secondary checks** (pre-registered, reported, not judged):
+- **All 16 qubits:** β = 0.462 [0.443, 0.485], homogeneous (Cochran p = 0.12); H2 flagged (0.785, p = 0.0005); H3 rejected (p = 0.0005, common range 8.2 mrad); H4 not flagged (p = 0.94).
+- **Net change against starting ε** across P: slope −0.09, 95% interval [−0.39, 0.10]. Re-tunes predict a negative slope; a common gain predicts 0, which the interval contains.
+- **Spread statistic T** (H3 as first drafted): 165.7 against a null mean of 125.6, p = 0.034.
+- **Coupling-map distance:** over P's 28 pairs, the Spearman correlation between residual correlation and distance is +0.21.
+- **Calibration records.** These are the 38 snapshots (before each submission and after each result) and E5a's dated properties at the 19 execution midpoints, which form 8 distinct sets.
+  - The only per-qubit field that changed is `init_error`. It was re-dated on all 16 qubits at 16:50:04, 16:59:09 and 17:27:38Z.
+  - T1, T2, readout error, X and √X gate errors and gate lengths did not change on any of the 16 qubits.
+  - The backend-wide `last_update_date` took 12 values between the first snapshot (12:38:06Z) and the resume (21:51:08Z).
+- **E5a** (`gain_drift/retrospective/`, 0 QPU-seconds): dated properties were available for every job. `dated_inside` is empty, because no interval was a large common move.
+
+**Post hoc** (not pre-registered) [OBSERVED]: on E4's eight qubits, pooled ε was higher in E5 than in E4 on every qubit (E4 +0.0017 to +0.0117 rad; E5 +0.0031 to +0.0135 rad). E5 began about 14 hours after E4 ended.
+
+**Interpretation** [HYPOTHESIS]:
+- **On the pre-registered reading,** E5 shows gain-like changes in ε (β near 0.5) whose ratio differs between qubits, which the reading attributes to re-tunes or mixed mechanisms.
+- **The other confirmatory tests** were computed but do not enter the reading. Together they describe a partly shared gain: the increments are strongly shared (H2), not equal in radians (H3 rejected), and smooth (H4 not flagged). The net-change slope shows no sign of re-tunes.
+- **The weakest step is the one that sets the reading.** That β differs between qubits rests on a test with a 0.26 false-rejection rate in E5-sim, and it does not hold on all 16 qubits (p = 0.12).
+- **No reported gate or readout property changed** while ε moved by 8 mrad along a shared path. Whatever drives it is not in the published calibration data.
+
+**What this means for operational directive 5.** A between-job model for single-qubit gate sequences needs a rotation error for each job, as in E3 and E4. On ibm_fez, those errors also move together across qubits (mean increment correlation 0.81), so qubits in one job are not independent replicates: pooling a quantity across qubits as if they were would understate its uncertainty [DERIVED from H2].
+
 ## Deviations and disclosures
 
 - **E2 interim look.** At about 15:40Z, 6 jobs into E2, I took a read-only, descriptive look at the finished jobs. It wrote nothing and changed nothing in the plan or the analysis. It is not in the pre-registration.
@@ -216,14 +292,20 @@ Pooled γ sits at its lower bound 0 on all eight qubits. Measurement SDs of ε_k
 - **E4 calibration snapshots predate execution.** The snapshots were taken before each submission, as pre-registered, but the jobs ran 39–91 minutes later. So they do not cover the execution window, and the secondary check of dates inside qubit 82's jump interval is uninformative. A design for a queued backend would need snapshots at execution time.
 - **E4 field name.** `abs_eps_before_after` in `analysis.json` holds the *signed* ε values before and after the jump. `abs_eps_decreased` compares their absolute values, correctly.
 - **E4 post hoc checks.** The weight shares, β and H4 without qubits 82 and 24, the step medians on qubit 82, qubit 4's readout errors and the detuning arithmetic were added after the results were in. They are labelled as post hoc and do not change the pre-registered reading.
-- **Unsigned ledger.** The ledger rows in all three hardware runs are hash-chained but unsigned, which deviates from directive 4. They need a signature from an enrolled node key.
+- **E5 stopped early.** E5 was started from the agent's shell with `setsid nohup`, under PRoot. The process died at about 18:58Z with job 19 in flight and left no traceback. By the time the next agent session began, the previous one had ended. The likely cause, that processes under PRoot do not outlive the session that started them, was not verified.
+  - Jobs 20–24 were never submitted. `resume` ran at 22:39Z, 11 minutes after the 8-hour cap, so it fetched job 19's result, stopped submissions ("wall-clock cap") and ran the analysis.
+  - The pre-registered minimum was met, but E5-sim's operating characteristics, R_min included, were computed for 24 jobs. With 19, every test has less power than simulated.
+- **No E5 interim look.** During the run I read only job status (the ledger's row kinds and counts, and the log's submission lines) and the design row (backend, qubits, starting budget). I first read E5 results at about 22:45Z, after `resume` had run the analysis.
+- **E5 post hoc check.** The comparison of pooled ε with E4 was added after the results were in. It is labelled as post hoc and does not change the reading.
+- **Unsigned ledger.** The ledger rows in all four hardware runs (E2–E5) are hash-chained but unsigned, which deviates from directive 4. They need a signature from an enrolled node key.
   - [`ATTESTATION_E2-E4.json`](ATTESTATION_E2-E4.json), written on 2026-10-28 after the runs by `python -m bridge.attest build`, binds each run's pre-registration hash, ledger (SHA-256, rows, final chain hash), telemetry head and every file in its folder.
   - It is unsigned until the holder of an enrolled node key runs `python -m bridge.attest sign`, which writes `ATTESTATION_E2-E4.json.sig`. `python -m bridge.attest verify` checks the signature and recomputes every hash.
   - A signature on it is retrospective. It shows that the key holder vouched for these files when signing, not that any row was signed while its job ran or that no row is missing.
 - **Base rates.** E1's base rates (0.5% and 2%) are above E2's readout error rates (0.1–0.4%). E1's operating characteristics therefore apply only approximately to the readout series.
-- **QPU budget.** E2 used 100 s, E3 96 s and E4 150 s, so 346 s of the open plan's 600 s per 28 days. The account reported 398 s remaining at E4b's start (6 s fewer than 600 − 196), so about 248 s should remain.
+- **QPU budget.** E2 used 100 s, E3 96 s and E4 150 s, so 346 s of the open plan's 600 s per 28 days. The account reported 398 s remaining at E4b's start (6 s fewer than 600 − 196), so about 248 s should remain. E5 used 95 s: the account reported 248 s at its start and 158 s before its last job, so about 153 s should remain.
 - **Agent rules.**
   - E2 used IBM Quantum, lasted about 95 minutes, and its thresholds were chosen by the agent. The user asked for the run and approved letting it continue past the node horizon.
   - E3 was requested in the user's own words. With its software control, it ran about 70 minutes, past the node horizon, as flagged in its pre-registration.
   - E4's values, the agent's build choices, its duration (about 110 minutes from submission to analysis, past the node horizon) and its QPU budget were approved by the user before the freeze. The user started E4a and E4b ("approve the agent choices, freeze it and run E4").
+  - E5's values were approved by the user, and its build choices frozen, before the freeze (see its pre-registration). Its duration (about 4 hours, capped at 8, past the node horizon) and its QPU budget (about 120 s) were approved by the user, who started it ("approve"). `resume` and E5a, both named in E5's steps to dispatch, ran after the user's "continue"; neither submitted a job.
   - The thresholds still need the human's review: α and the 0.80 and 0.50 in E2's predictions, and the replica count and control step sizes in E3's.
