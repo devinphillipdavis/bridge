@@ -69,7 +69,7 @@ class E5Design:
     min_long_gaps: int = 12
     min_budget_s: float = 150.0
     stop_budget_s: float = 20.0
-    r_min_rad: Optional[float] = None    # H3's power condition; set from E5-sim before the freeze
+    r_min_rad: Optional[float] = 0.005   # H3's power condition: R_min from E5-sim v2 (walk grid)
     move_sd: float = 3.0                 # secondary: common moves beyond this many robust SDs
     walk_q: float = pa.E3_WALK_Q         # S1, S2, S5, S6: rad^2 / s
     loadings: Tuple[float, float] = (0.5, 1.5)      # S3

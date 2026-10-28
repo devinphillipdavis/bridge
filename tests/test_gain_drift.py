@@ -276,7 +276,7 @@ def _walk_counts(qubits, design, seed, extra=None, k=24, readout=None):
 
 
 def test_analyze_excludes_frequency_and_contrast_changes_and_reads_a_shared_gain():
-    design = gd.E5Design(replicas=299)                       # 7 qubits: Holm's first bar 0.05 / 14 > 1 / 300
+    design = gd.E5Design(replicas=299, r_min_rad=None)       # 7 qubits: Holm's first bar 0.05 / 14 > 1 / 300
     step = np.where(np.arange(24) >= 12, 200e3, -200e3)
     rise = np.where(np.arange(24) >= 6, np.random.default_rng(20).uniform(0.02, 0.1, 24), 0.0)
     y = _walk_counts(7, design, 11, extra=(5, step), readout=(6, rise))
