@@ -20,12 +20,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Set
 
-from dnalang.ledger import Ledger
 from osiris_governance.contracts import PermitAuthority
 from osiris_governance.evidence_verifier import ExternalVerifier, RawDataPackage
 from osiris_governance.ledger import DynamicEvidenceLedger
 from osiris_governance.models.ledger import EvidencePlane
 from osiris_governance.stat_gate import StatisticalPromotionGate
+
+from dnalang.ledger import Ledger
 
 from .compare import HARD, compare
 from .noise import Calibration

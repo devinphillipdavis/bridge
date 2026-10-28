@@ -10,11 +10,12 @@ sys.path.insert(0, str(ROOT))
 pytest.importorskip("qiskit_aer")
 pytest.importorskip("osiris_governance")
 
-import bridge.verified_compare as vc  # noqa: E402
-from bridge.compare import HARD, compare  # noqa: E402
 from osiris_governance.contracts import PermitAuthority  # noqa: E402
 from osiris_governance.ledger import DynamicEvidenceLedger  # noqa: E402
 from osiris_governance.models.ledger import LedgerEventType  # noqa: E402
+
+import bridge.verified_compare as vc  # noqa: E402
+from bridge.compare import HARD, compare  # noqa: E402
 
 AUTHORITY = PermitAuthority(b"k" * 32)
 SMALL = dict(seeds=[0], budget=10, cal=HARD, verify_shots=128)

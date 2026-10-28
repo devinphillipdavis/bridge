@@ -1,0 +1,69 @@
+{
+ "false_alarm_bound": 0.06378404875209022,
+ "P1_calibrated_under_null": {
+  "pass": true,
+  "rates": {
+   "0.005/null/0/dispersion": 0.042,
+   "0.005/null/0/lag1_autocorrelation": 0.055,
+   "0.005/null/0/trend_r2": 0.048,
+   "0.005/null/0/cusum_peak": 0.057,
+   "0.005/null/0/session_eta2": 0.057,
+   "0.005/null/0/slope_sq": 0.05,
+   "0.02/null/0/dispersion": 0.048,
+   "0.02/null/0/lag1_autocorrelation": 0.048,
+   "0.02/null/0/trend_r2": 0.054,
+   "0.02/null/0/cusum_peak": 0.046,
+   "0.02/null/0/session_eta2": 0.054,
+   "0.02/null/0/slope_sq": 0.05
+  }
+ },
+ "P2_sensitive_to_drift": {
+  "pass": true,
+  "rates": {
+   "0.005/linear/8/trend_r2": 1.0,
+   "0.005/linear/8/cusum_peak": 1.0,
+   "0.005/step/8/cusum_peak": 1.0,
+   "0.005/step/8/session_eta2": 1.0,
+   "0.005/walk/2/lag1_autocorrelation": 0.918,
+   "0.02/linear/8/trend_r2": 1.0,
+   "0.02/linear/8/cusum_peak": 1.0,
+   "0.02/step/8/cusum_peak": 1.0,
+   "0.02/step/8/session_eta2": 1.0,
+   "0.02/walk/2/lag1_autocorrelation": 0.92
+  }
+ },
+ "P3_time_order_checks_ignore_jitter": {
+  "pass": true,
+  "rates": {
+   "0.005/jitter/4/lag1_autocorrelation": 0.042,
+   "0.005/jitter/4/trend_r2": 0.047,
+   "0.005/jitter/4/cusum_peak": 0.056,
+   "0.005/jitter/4/session_eta2": 0.05,
+   "0.02/jitter/4/lag1_autocorrelation": 0.043,
+   "0.02/jitter/4/trend_r2": 0.056,
+   "0.02/jitter/4/cusum_peak": 0.054,
+   "0.02/jitter/4/session_eta2": 0.044
+  }
+ },
+ "P3_dispersion_detects_jitter": {
+  "pass": true,
+  "rates": {
+   "0.005/jitter/4/dispersion": 1.0,
+   "0.02/jitter/4/dispersion": 1.0
+  }
+ },
+ "P4_slope_check_confuses_jitter_with_drift": {
+  "pass": true,
+  "rates": {
+   "0.005/jitter/4/slope_sq": 0.595,
+   "0.02/jitter/4/slope_sq": 0.633
+  }
+ },
+ "P5_h27_misses_linear_drift": {
+  "pass": true,
+  "rates": {
+   "0.005/linear/8/cusum_h27": 0.0,
+   "0.02/linear/8/cusum_h27": 0.0
+  }
+ }
+}
