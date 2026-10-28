@@ -1,0 +1,264 @@
+{
+ "key": "S7",
+ "scenario": "S7",
+ "common_range": null,
+ "path": "walk",
+ "code_sha256": "cff696133d8adef89853206822e2b2f3c1a6e1e2c27e723f64f1ec3a163e9b2e",
+ "trials": [
+  20,
+  25
+ ],
+ "rows": [
+  {
+   "trial": 20,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "inconclusive",
+    "homogeneous": true,
+    "pooled": 0.32297171417311255,
+    "interval": [
+     0.022499989475045865,
+     0.5717186053312339
+    ],
+    "cochran_p": 0.9999999176272606
+   },
+   "H2": {
+    "mean_correlation": 0.22059951344862416,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.03596403596403597,
+    "rejected": true,
+    "common_range": 0.0024230713741396712,
+    "underpowered": true,
+    "spread_p": 0.7512487512487512
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "not_gain"
+  },
+  {
+   "trial": 21,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q8/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "gain",
+    "homogeneous": true,
+    "pooled": 0.4639038996013338,
+    "interval": [
+     0.4125222203328564,
+     0.5335117774165791
+    ],
+    "cochran_p": 0.15747263581422344
+   },
+   "H2": {
+    "mean_correlation": 0.18940002441757606,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.7282717282717283,
+    "rejected": false,
+    "common_range": 0.0025360997080532827,
+    "underpowered": true,
+    "spread_p": 0.42957042957042957
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "shared_untested"
+  },
+  {
+   "trial": 22,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q8/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "gain",
+    "homogeneous": true,
+    "pooled": 0.46330795901643773,
+    "interval": [
+     0.42955091822087665,
+     0.514089613200609
+    ],
+    "cochran_p": 0.9349409583524497
+   },
+   "H2": {
+    "mean_correlation": 0.20382516862966965,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.5374625374625375,
+    "rejected": false,
+    "common_range": 0.002492322343431658,
+    "underpowered": true,
+    "spread_p": 0.01998001998001998
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "shared_untested"
+  },
+  {
+   "trial": 23,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q6/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "inconclusive",
+    "homogeneous": true,
+    "pooled": 0.37512934348662946,
+    "interval": [
+     -0.18056964270043227,
+     0.49576514375730457
+    ],
+    "cochran_p": 0.9999999999999681
+   },
+   "H2": {
+    "mean_correlation": 0.23450290653878603,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.12087912087912088,
+    "rejected": false,
+    "common_range": 0.002467946515492851,
+    "underpowered": true,
+    "spread_p": 0.11988011988011989
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "not_gain"
+  },
+  {
+   "trial": 24,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q4/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "x_only",
+    "homogeneous": true,
+    "pooled": -0.0033002983266647687,
+    "interval": [
+     -0.8905419673514613,
+     0.1839426919140987
+    ],
+    "cochran_p": 0.9999999999999917
+   },
+   "H2": {
+    "mean_correlation": 0.24831130699398263,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.7252747252747253,
+    "rejected": false,
+    "common_range": 0.002526853656005951,
+    "underpowered": true,
+    "spread_p": 0.5594405594405595
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "not_gain"
+  }
+ ],
+ "seconds": 36.1
+}

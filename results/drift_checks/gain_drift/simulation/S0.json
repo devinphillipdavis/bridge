@@ -1,0 +1,43 @@
+{
+ "key": "S0",
+ "scenario": "S0",
+ "common_range": null,
+ "path": "walk",
+ "code_sha256": "cff696133d8adef89853206822e2b2f3c1a6e1e2c27e723f64f1ec3a163e9b2e",
+ "control": {
+  "control_flags": [],
+  "dispatch_allowed": true,
+  "flagged": [],
+  "excluded": {
+   "H5": [],
+   "HC": []
+  },
+  "category": "not_evaluable",
+  "tests": {
+   "H1": {
+    "interval": [
+     -0.368557228781211,
+     0.5059396447444462
+    ],
+    "region": "inconclusive",
+    "cochran_p": 0.9997692007598324,
+    "homogeneous": true
+   },
+   "H2": {
+    "p": 0.4032983508245877,
+    "flagged": false
+   },
+   "H3": {
+    "p": 0.7781109445277361,
+    "rejected": false,
+    "common_range": 0.0006000146878614963
+   },
+   "H4": {
+    "p": 0.3698150924537731,
+    "interval": 4,
+    "flagged": false
+   }
+  }
+ },
+ "seconds": 12.9
+}
