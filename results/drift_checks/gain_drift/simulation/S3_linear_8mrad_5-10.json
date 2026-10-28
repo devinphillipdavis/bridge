@@ -1,0 +1,289 @@
+{
+ "key": "S3_linear_8mrad",
+ "scenario": "S3",
+ "common_range": 0.008,
+ "path": "linear",
+ "code_sha256": "cff696133d8adef89853206822e2b2f3c1a6e1e2c27e723f64f1ec3a163e9b2e",
+ "trials": [
+  5,
+  10
+ ],
+ "rows": [
+  {
+   "trial": 5,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q8/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "gain",
+    "homogeneous": true,
+    "pooled": 0.4580332041460438,
+    "interval": [
+     0.43519635139400653,
+     0.4836632437417874
+    ],
+    "cochran_p": 0.08492842089558618
+   },
+   "H2": {
+    "mean_correlation": 0.1320036320287011,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.001998001998001998,
+    "rejected": true,
+    "common_range": 0.007099435957390236,
+    "underpowered": true,
+    "spread_p": 0.21578421578421578
+   },
+   "H4": {
+    "p": 0.1008991008991009,
+    "flagged": false
+   },
+   "category": "partly_shared"
+  },
+  {
+   "trial": 6,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q8/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "gain",
+    "homogeneous": true,
+    "pooled": 0.4982710085388362,
+    "interval": [
+     0.4787360837371271,
+     0.5220592601916721
+    ],
+    "cochran_p": 0.32833708378769777
+   },
+   "H2": {
+    "mean_correlation": 0.1194946282269933,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.04195804195804196,
+    "rejected": true,
+    "common_range": 0.007403901698066736,
+    "underpowered": true,
+    "spread_p": 0.12387612387612387
+   },
+   "H4": {
+    "p": 0.47052947052947053,
+    "flagged": false
+   },
+   "category": "partly_shared"
+  },
+  {
+   "trial": 7,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q8/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "gain",
+    "homogeneous": true,
+    "pooled": 0.46563799503895476,
+    "interval": [
+     0.45050803289531016,
+     0.482457314414265
+    ],
+    "cochran_p": 0.1759217070413191
+   },
+   "H2": {
+    "mean_correlation": 0.19481115905014912,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.6603396603396603,
+    "rejected": false,
+    "common_range": 0.008414564086370027,
+    "underpowered": true,
+    "spread_p": 0.42157842157842157
+   },
+   "H4": {
+    "p": 0.4835164835164835,
+    "flagged": false
+   },
+   "category": "shared_untested"
+  },
+  {
+   "trial": 8,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q8/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "gain",
+    "homogeneous": true,
+    "pooled": 0.484840001721807,
+    "interval": [
+     0.46816281355845596,
+     0.5069082632709491
+    ],
+    "cochran_p": 0.07684867555726424
+   },
+   "H2": {
+    "mean_correlation": 0.16086301491833974,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.003996003996003996,
+    "rejected": true,
+    "common_range": 0.008058282513932834,
+    "underpowered": true,
+    "spread_p": 0.7452547452547452
+   },
+   "H4": {
+    "p": 0.932067932067932,
+    "flagged": false
+   },
+   "category": "partly_shared"
+  },
+  {
+   "trial": 9,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q8/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "gain",
+    "homogeneous": true,
+    "pooled": 0.43487876136888776,
+    "interval": [
+     0.41113844823019396,
+     0.4636036713832577
+    ],
+    "cochran_p": 0.05887121200927867
+   },
+   "H2": {
+    "mean_correlation": 0.13233254348349863,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.000999000999000999,
+    "rejected": true,
+    "common_range": 0.008060227709669406,
+    "underpowered": true,
+    "spread_p": 0.057942057942057944
+   },
+   "H4": {
+    "p": 0.3756243756243756,
+    "flagged": false
+   },
+   "category": "partly_shared"
+  }
+ ],
+ "seconds": 36.1
+}

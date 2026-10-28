@@ -1,0 +1,264 @@
+{
+ "key": "S7",
+ "scenario": "S7",
+ "common_range": null,
+ "path": "walk",
+ "code_sha256": "cff696133d8adef89853206822e2b2f3c1a6e1e2c27e723f64f1ec3a163e9b2e",
+ "trials": [
+  5,
+  10
+ ],
+ "rows": [
+  {
+   "trial": 5,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q8/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "gain",
+    "homogeneous": true,
+    "pooled": 0.42809337234422784,
+    "interval": [
+     0.3836271110539875,
+     0.48723316550425444
+    ],
+    "cochran_p": 0.18580294248090873
+   },
+   "H2": {
+    "mean_correlation": 0.20087263509027695,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.4205794205794206,
+    "rejected": false,
+    "common_range": 0.0024075847304260364,
+    "underpowered": true,
+    "spread_p": 0.26573426573426573
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "shared_untested"
+  },
+  {
+   "trial": 6,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q8/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "inconclusive",
+    "homogeneous": true,
+    "pooled": 0.30887384724233624,
+    "interval": [
+     -0.03473368231426108,
+     0.4750580433306825
+    ],
+    "cochran_p": 0.999999999979614
+   },
+   "H2": {
+    "mean_correlation": 0.24124164389700897,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.6483516483516484,
+    "rejected": false,
+    "common_range": 0.002375100812121873,
+    "underpowered": true,
+    "spread_p": 0.38461538461538464
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "not_gain"
+  },
+  {
+   "trial": 7,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [
+     1
+    ],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q10/rotation_error/dispersion",
+    "q11/rotation_error/dispersion",
+    "q12/rotation_error/dispersion",
+    "q13/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q15/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q3/rotation_error/dispersion",
+    "q4/rotation_error/dispersion",
+    "q5/rotation_error/dispersion",
+    "q6/rotation_error/dispersion",
+    "q7/rotation_error/dispersion",
+    "q8/rotation_error/dispersion",
+    "q9/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "gain",
+    "homogeneous": true,
+    "pooled": 0.4305763908100212,
+    "interval": [
+     0.36758775970003466,
+     0.5097287443387634
+    ],
+    "cochran_p": 0.7654150178734166
+   },
+   "H2": {
+    "mean_correlation": 0.1625613920796611,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.02197802197802198,
+    "rejected": true,
+    "common_range": 0.002434225166386134,
+    "underpowered": true,
+    "spread_p": 0.4775224775224775
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "partly_shared"
+  },
+  {
+   "trial": 8,
+   "gate": true,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q0/rotation_error/dispersion",
+    "q1/rotation_error/dispersion",
+    "q14/rotation_error/dispersion",
+    "q2/rotation_error/dispersion",
+    "q7/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "inconclusive",
+    "homogeneous": true,
+    "pooled": 0.27070300124174296,
+    "interval": [
+     -0.29035303192067224,
+     0.5011498604739321
+    ],
+    "cochran_p": 0.9999999530585238
+   },
+   "H2": {
+    "mean_correlation": 0.26075639726406363,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.978021978021978,
+    "rejected": false,
+    "common_range": 0.002407037378942314,
+    "underpowered": true,
+    "spread_p": 0.929070929070929
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "not_gain"
+  },
+  {
+   "trial": 9,
+   "gate": false,
+   "n_qubits": 16,
+   "excluded": {
+    "H5": [],
+    "HC": []
+   },
+   "flagged": [
+    "q2/rotation_error/dispersion",
+    "q4/rotation_error/dispersion"
+   ],
+   "event_qubit": null,
+   "H1": {
+    "region": "inconclusive",
+    "homogeneous": true,
+    "pooled": 0.24535358868571416,
+    "interval": [
+     -0.2992161431591067,
+     0.41802549174328113
+    ],
+    "cochran_p": 0.9994020815776795
+   },
+   "H2": {
+    "mean_correlation": 0.21947685090450927,
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "H3": {
+    "p": 0.08391608391608392,
+    "rejected": false,
+    "common_range": 0.002316563875686355,
+    "underpowered": true,
+    "spread_p": 0.14285714285714285
+   },
+   "H4": {
+    "p": 0.000999000999000999,
+    "flagged": true
+   },
+   "category": "not_evaluable"
+  }
+ ],
+ "seconds": 32.4
+}

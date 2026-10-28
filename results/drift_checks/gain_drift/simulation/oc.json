@@ -1,0 +1,443 @@
+{
+ "design": {
+  "jobs": 24,
+  "spacing_s": 600.0,
+  "cap_s": 28800.0,
+  "drain_s": 7200.0,
+  "poll_s": 30.0,
+  "shots": 1000,
+  "replicas": 2000,
+  "alpha": 0.05,
+  "analysis_seed": 2026102901,
+  "control_seed": 2026102902,
+  "sim_seed": 2026102903,
+  "sim_trials": 50,
+  "sim_replicas": 1000,
+  "extra_qubits": 8,
+  "ramsey_delay_s": 2e-07,
+  "iterations": 5,
+  "gate_min": 3,
+  "gain_band": [
+   0.3,
+   0.75
+  ],
+  "x_only_max": 0.25,
+  "detuning_min": 1.25,
+  "ramsey_limit_hz": 200000.0,
+  "min_jobs": 16,
+  "long_gap_s": 300.0,
+  "min_long_gaps": 12,
+  "min_budget_s": 150.0,
+  "stop_budget_s": 20.0,
+  "r_min_rad": 0.005,
+  "move_sd": 3.0,
+  "walk_q": 4.3e-09,
+  "loadings": [
+   0.5,
+   1.5
+  ],
+  "event_eps_rad": 0.005,
+  "event_hz": 340000.0,
+  "e1_rise": [
+   0.02,
+   0.1
+  ],
+  "step_rad": 0.002
+ },
+ "r_min_rad": 0.005,
+ "S3_power": {
+  "walk": {
+   "0.003": 0.48,
+   "0.004": 0.78,
+   "0.005": 0.86,
+   "0.006": 0.94,
+   "0.008": 1.0
+  },
+  "linear": {
+   "0.008": 0.54,
+   "0.012": 1.0,
+   "0.016": 1.0
+  },
+  "spread_walk": {
+   "0.003": 0.12,
+   "0.004": 0.22,
+   "0.005": 0.4,
+   "0.006": 0.42,
+   "0.008": 0.78
+  },
+  "spread_linear": {
+   "0.008": 0.06,
+   "0.012": 0.12,
+   "0.016": 0.3
+  }
+ },
+ "code_versions": [
+  "cff696133d8adef89853206822e2b2f3c1a6e1e2c27e723f64f1ec3a163e9b2e"
+ ],
+ "control": {
+  "control_flags": [],
+  "dispatch_allowed": true,
+  "flagged": [],
+  "excluded": {
+   "H5": [],
+   "HC": []
+  },
+  "category": "not_evaluable",
+  "tests": {
+   "H1": {
+    "interval": [
+     -0.368557228781211,
+     0.5059396447444462
+    ],
+    "region": "inconclusive",
+    "cochran_p": 0.9997692007598324,
+    "homogeneous": true
+   },
+   "H2": {
+    "p": 0.4032983508245877,
+    "flagged": false
+   },
+   "H3": {
+    "p": 0.7781109445277361,
+    "rejected": false,
+    "common_range": 0.0006000146878614963
+   },
+   "H4": {
+    "p": 0.3698150924537731,
+    "interval": 4,
+    "flagged": false
+   }
+  }
+ },
+ "rates": {
+  "S1": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.74,
+   "H2": 1.0,
+   "H3_rejected": 0.02,
+   "H3_spread_rejected": 0.16,
+   "H4": 0.02,
+   "median_common_range": 0.010292639293046094,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 13,
+    "independent": 0,
+    "partly_shared": 1,
+    "shared_untested": 0,
+    "fully_common": 35,
+    "fully_common_steps": 1
+   }
+  },
+  "S2": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.7,
+   "H2": 0.04,
+   "H3_rejected": 1.0,
+   "H3_spread_rejected": 1.0,
+   "H4": 0.04,
+   "median_common_range": 0.0026257498117511265,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 15,
+    "independent": 34,
+    "partly_shared": 1,
+    "shared_untested": 0,
+    "fully_common": 0,
+    "fully_common_steps": 0
+   }
+  },
+  "S3_linear_12mrad": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.54,
+   "H2": 1.0,
+   "H3_rejected": 1.0,
+   "H3_spread_rejected": 0.12,
+   "H4": 0.06,
+   "median_common_range": 0.012302245070510975,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 23,
+    "independent": 0,
+    "partly_shared": 27,
+    "shared_untested": 0,
+    "fully_common": 0,
+    "fully_common_steps": 0
+   }
+  },
+  "S3_linear_16mrad": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.36,
+   "H2": 1.0,
+   "H3_rejected": 1.0,
+   "H3_spread_rejected": 0.3,
+   "H4": 0.04,
+   "median_common_range": 0.01633516287756384,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 32,
+    "independent": 0,
+    "partly_shared": 18,
+    "shared_untested": 0,
+    "fully_common": 0,
+    "fully_common_steps": 0
+   }
+  },
+  "S3_linear_8mrad": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.74,
+   "H2": 1.0,
+   "H3_rejected": 0.54,
+   "H3_spread_rejected": 0.06,
+   "H4": 0.0,
+   "median_common_range": 0.008206474427105228,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 13,
+    "independent": 0,
+    "partly_shared": 20,
+    "shared_untested": 0,
+    "fully_common": 17,
+    "fully_common_steps": 0
+   }
+  },
+  "S3_walk_3mrad": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 0.84,
+   "H1_homogeneous": 0.96,
+   "H2": 1.0,
+   "H3_rejected": 0.48,
+   "H3_spread_rejected": 0.12,
+   "H4": 0.02,
+   "median_common_range": 0.0032066531599833897,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 8,
+    "gain_heterogeneous": 2,
+    "independent": 0,
+    "partly_shared": 19,
+    "shared_untested": 21,
+    "fully_common": 0,
+    "fully_common_steps": 0
+   }
+  },
+  "S3_walk_4mrad": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.9,
+   "H2": 1.0,
+   "H3_rejected": 0.78,
+   "H3_spread_rejected": 0.22,
+   "H4": 0.0,
+   "median_common_range": 0.0041750339637986415,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 5,
+    "independent": 0,
+    "partly_shared": 36,
+    "shared_untested": 9,
+    "fully_common": 0,
+    "fully_common_steps": 0
+   }
+  },
+  "S3_walk_5mrad": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.84,
+   "H2": 1.0,
+   "H3_rejected": 0.86,
+   "H3_spread_rejected": 0.4,
+   "H4": 0.02,
+   "median_common_range": 0.005191513608412532,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 8,
+    "independent": 0,
+    "partly_shared": 36,
+    "shared_untested": 1,
+    "fully_common": 5,
+    "fully_common_steps": 0
+   }
+  },
+  "S3_walk_6mrad": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.9,
+   "H2": 1.0,
+   "H3_rejected": 0.94,
+   "H3_spread_rejected": 0.42,
+   "H4": 0.06,
+   "median_common_range": 0.00615261351356401,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 5,
+    "independent": 0,
+    "partly_shared": 42,
+    "shared_untested": 0,
+    "fully_common": 2,
+    "fully_common_steps": 1
+   }
+  },
+  "S3_walk_8mrad": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.8,
+   "H2": 1.0,
+   "H3_rejected": 1.0,
+   "H3_spread_rejected": 0.78,
+   "H4": 0.02,
+   "median_common_range": 0.00828161414564513,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 10,
+    "independent": 0,
+    "partly_shared": 40,
+    "shared_untested": 0,
+    "fully_common": 0,
+    "fully_common_steps": 0
+   }
+  },
+  "S4": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 0.78,
+   "H1_homogeneous": 0.02,
+   "H2": 0.4,
+   "H3_rejected": 1.0,
+   "H3_spread_rejected": 1.0,
+   "H4": 0.24,
+   "median_common_range": 0.006196202599058035,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 11,
+    "gain_heterogeneous": 39,
+    "independent": 0,
+    "partly_shared": 0,
+    "shared_untested": 0,
+    "fully_common": 0,
+    "fully_common_steps": 0
+   },
+   "not_fully_common": 1.0
+  },
+  "S5": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.74,
+   "H2": 1.0,
+   "H3_rejected": 0.0,
+   "H3_spread_rejected": 0.14,
+   "H4": 0.02,
+   "median_common_range": 0.010265801605518442,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 13,
+    "independent": 0,
+    "partly_shared": 0,
+    "shared_untested": 0,
+    "fully_common": 36,
+    "fully_common_steps": 1
+   },
+   "event_excluded": 0.98,
+   "reading_unchanged": 0.94
+  },
+  "S6": {
+   "trials": 50,
+   "gate": 1.0,
+   "H1_gain": 1.0,
+   "H1_homogeneous": 0.76,
+   "H2": 1.0,
+   "H3_rejected": 0.0,
+   "H3_spread_rejected": 0.14,
+   "H4": 0.02,
+   "median_common_range": 0.010265801605518442,
+   "categories": {
+    "not_evaluable": 0,
+    "frequency": 0,
+    "not_gain": 0,
+    "gain_heterogeneous": 12,
+    "independent": 0,
+    "partly_shared": 0,
+    "shared_untested": 0,
+    "fully_common": 37,
+    "fully_common_steps": 1
+   },
+   "event_excluded": 1.0,
+   "reading_unchanged": 0.96
+  },
+  "S7": {
+   "trials": 50,
+   "gate": 0.9,
+   "H1_gain": 0.54,
+   "H1_homogeneous": 1.0,
+   "H2": 1.0,
+   "H3_rejected": 0.1,
+   "H3_spread_rejected": 0.02,
+   "H4": 1.0,
+   "median_common_range": 0.0024068364342792743,
+   "categories": {
+    "not_evaluable": 5,
+    "frequency": 0,
+    "not_gain": 18,
+    "gain_heterogeneous": 0,
+    "independent": 0,
+    "partly_shared": 2,
+    "shared_untested": 25,
+    "fully_common": 0,
+    "fully_common_steps": 0
+   }
+  }
+ },
+ "verdict": {
+  "S0_dispatch_allowed": true,
+  "S1_H2_power_ge_0.80": true,
+  "S1_H3_false_rejection_le_0.10": true,
+  "S1_H1_gain_ge_0.90": true,
+  "S1_H4_false_alarm_le_0.10": true,
+  "S2_H2_false_alarm_le_0.10": true,
+  "S4_not_fully_common_ge_0.90": true,
+  "S5_H5_excludes_ge_0.80": true,
+  "S5_reading_unchanged_ge_0.80": true,
+  "S6_HC_excludes_ge_0.80": true,
+  "S6_reading_unchanged_ge_0.80": true,
+  "S7_H4_power_ge_0.80": true
+ },
+ "seconds": 5738.2,
+ "code_sha256": "cff696133d8adef89853206822e2b2f3c1a6e1e2c27e723f64f1ec3a163e9b2e"
+}
