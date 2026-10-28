@@ -1,0 +1,101 @@
+{
+ "created": "2026-10-28T18:39:44Z",
+ "document_type": "OSIRIS-RETROSPECTIVE-ATTESTATION-V1",
+ "does_not_show": [
+  "that any ledger row was signed while its job ran",
+  "that no ledger row is missing",
+  "anything about what the data mean"
+ ],
+ "runs": {
+  "E2": {
+   "files": {
+    "hardware/analysis.json": "be0b95460caf24bc4f11d3dcb4dd3f55b96fed5ba64b75a09218d93bf2223739",
+    "hardware/control/analysis.json": "1a1a8dda062ab2b8c2b74350da0a06a11bdb0b899e59ea6e2cce1b29eeb927de",
+    "hardware/control/telemetry.jsonl": "55b3720b235553883f330cd6e098a7fe0398e39bee29bce2acd6e8b7833ff711",
+    "hardware/ledger.jsonl": "6e461f745da432b6f8d1e88ad0c34a01255b591bb4618804470eb23f355cb652",
+    "hardware/state.json": "78dda62749ee71fdeb15f31c97269701189f1259051eeb8a48938c6eceaeb584",
+    "hardware/telemetry.jsonl": "48a289a47a2438ab44bc9b57effd662ccf57fc6ddd9ddf3ae1d570f599333629"
+   },
+   "ledger": {
+    "first_ts": "2026-10-27T14:45:43Z",
+    "head": "c7d93df4589bc3f87adc8d1779c1d6ad06c470bc8768e07674bb01e2c22bf7b4",
+    "last_ts": "2026-10-27T16:22:00Z",
+    "path": "hardware/ledger.jsonl",
+    "rows": 62,
+    "sha256": "6e461f745da432b6f8d1e88ad0c34a01255b591bb4618804470eb23f355cb652"
+   },
+   "preregistration": {
+    "ots": "PREREGISTRATION.md.ots",
+    "path": "PREREGISTRATION.md",
+    "sha256": "655472339132152ac308d871deaf5f052430c6c644c34cc523e42a9fd02ec989"
+   },
+   "telemetry": {
+    "head": "sha256:88ddc6ddb05fe0956563e3d35bea14ed0b483c877ffc3ed843a7373c94c3c0e5",
+    "path": "hardware/telemetry.jsonl",
+    "records": 20,
+    "run_id": "drift-hw-ibm_fez"
+   }
+  },
+  "E3": {
+   "files": {
+    "amplitude/analysis.json": "8ac0cf2d075bcc9bd7b6b1ac5d99bf8e09a7f4edcb1336525c9672a50da429f1",
+    "amplitude/control.json": "5e8b9f79b84c2a9569439f16cee0820b1c3493af467778e31a345bdc6cfdd712",
+    "amplitude/ledger.jsonl": "38c68acc3b1827e6de4481adc4cd7afc814499143f6f88d92c407e1d85612a2b",
+    "amplitude/state.json": "0c4b92c72d67b90ece93e892e8b74df24e7cf9e0107f76e6aa74d7e796cda9b6",
+    "amplitude/telemetry.jsonl": "3c4bbbea64f4961da7241a4200ed7387ea0ad21692377f4fa06b8af23ba4d657"
+   },
+   "ledger": {
+    "first_ts": "2026-10-27T16:22:58Z",
+    "head": "9a06486ad88cdf07f380bcc6f60da647952efe72bcfa757992cff9112fdd0f8e",
+    "last_ts": "2026-10-27T17:33:38Z",
+    "path": "amplitude/ledger.jsonl",
+    "rows": 38,
+    "sha256": "38c68acc3b1827e6de4481adc4cd7afc814499143f6f88d92c407e1d85612a2b"
+   },
+   "preregistration": {
+    "ots": "AMPLITUDE_PREREGISTRATION.md.ots",
+    "path": "AMPLITUDE_PREREGISTRATION.md",
+    "sha256": "261586b7aa418021b3d4a7e8ea1ccf662f78696cf9c6faa9aebe764c6eeca3da"
+   },
+   "telemetry": {
+    "head": "sha256:b90069550195b47ec8aee262d87523d588671d6bc92c98a2b3673a1e67d5e0d7",
+    "path": "amplitude/telemetry.jsonl",
+    "records": 12,
+    "run_id": "amplitude-hw-ibm_fez"
+   }
+  },
+  "E4": {
+   "files": {
+    "pulse_amplitude/analysis.json": "f1254bfb5ed089e976559711917a9a428a0aedfc4424276ead4474e1274417bb",
+    "pulse_amplitude/control.json": "b77f00d2f25ccbb48e4228fe23e23cbca37bb886498fcb207fc7a1450b53634c",
+    "pulse_amplitude/ledger.jsonl": "dc0850a744476c24f548380f0759d2d9e8d6c018ba5a2028afc80b3f89de5053",
+    "pulse_amplitude/retrospective.log": "b2fe911816e0aab9166a5ec8473ab5be3166a1d9f0dcef5d999ee92403f8cc87",
+    "pulse_amplitude/retrospective/retrospective.json": "bb3e28399b69d8e5e6f9863dd690ff1559d8ac5e4f48eea57848bde0135c94b7",
+    "pulse_amplitude/simulation/oc.json": "d48449ef646d03afe307a4813e2c1b9661cb3e60d3357e3cfae6566e1fbe3962",
+    "pulse_amplitude/simulation/oc_rejected_median_rate.json": "a4be8389e490b252c8c4310a15f5a5a7f00477be68970b010915e75c315a141f",
+    "pulse_amplitude/state.json": "5649b59401ac6e2315aa5e68853359a235bd553b050bc3500c49a7516877d7fe",
+    "pulse_amplitude/telemetry.jsonl": "79db53b8178f954b73d99f393c7e995e0d463e74c7b56c2861bcedb849e293d2"
+   },
+   "ledger": {
+    "first_ts": "2026-10-27T22:44:47Z",
+    "head": "41e9ecb9e1abdb51d9fe327e53bb02d49c48136f593a2f31272b1dcb5be8e293",
+    "last_ts": "2026-10-28T00:36:54Z",
+    "path": "pulse_amplitude/ledger.jsonl",
+    "rows": 122,
+    "sha256": "dc0850a744476c24f548380f0759d2d9e8d6c018ba5a2028afc80b3f89de5053"
+   },
+   "preregistration": {
+    "ots": "E4_PREREGISTRATION.md.ots",
+    "path": "E4_PREREGISTRATION.md",
+    "sha256": "7e20ee97bdfff896f438433629eb8068a449ca63a9481123d8dd9f07e122ae07"
+   },
+   "telemetry": {
+    "head": "sha256:5ed55af57d5f03781880f65c6fc7650a217b22b5637f6360f0834c2e3e6aa5e3",
+    "path": "pulse_amplitude/telemetry.jsonl",
+    "records": 30,
+    "run_id": "pulse-amplitude-hw-ibm_fez"
+   }
+  }
+ },
+ "statement": "Retrospective attestation. The signer vouches that the files listed here are the records of these runs as committed. The ledgers were not signed while the jobs ran."
+}

@@ -217,6 +217,9 @@ Pooled γ sits at its lower bound 0 on all eight qubits. Measurement SDs of ε_k
 - **E4 field name.** `abs_eps_before_after` in `analysis.json` holds the *signed* ε values before and after the jump. `abs_eps_decreased` compares their absolute values, correctly.
 - **E4 post hoc checks.** The weight shares, β and H4 without qubits 82 and 24, the step medians on qubit 82, qubit 4's readout errors and the detuning arithmetic were added after the results were in. They are labelled as post hoc and do not change the pre-registered reading.
 - **Unsigned ledger.** The ledger rows in all three hardware runs are hash-chained but unsigned, which deviates from directive 4. They need a signature from an enrolled node key.
+  - [`ATTESTATION_E2-E4.json`](ATTESTATION_E2-E4.json), written on 2026-10-28 after the runs by `python -m bridge.attest build`, binds each run's pre-registration hash, ledger (SHA-256, rows, final chain hash), telemetry head and every file in its folder.
+  - It is unsigned until the holder of an enrolled node key runs `python -m bridge.attest sign`, which writes `ATTESTATION_E2-E4.json.sig`. `python -m bridge.attest verify` checks the signature and recomputes every hash.
+  - A signature on it is retrospective. It shows that the key holder vouched for these files when signing, not that any row was signed while its job ran or that no row is missing.
 - **Base rates.** E1's base rates (0.5% and 2%) are above E2's readout error rates (0.1–0.4%). E1's operating characteristics therefore apply only approximately to the readout series.
 - **QPU budget.** E2 used 100 s, E3 96 s and E4 150 s, so 346 s of the open plan's 600 s per 28 days. The account reported 398 s remaining at E4b's start (6 s fewer than 600 − 196), so about 248 s should remain.
 - **Agent rules.**
