@@ -19,6 +19,6 @@ jobs:
         with: { repository: devinphillipdavis/osiris-governance, path: osiris-governance }
       - uses: actions/setup-python@v5
         with: { python-version: "${{ matrix.python-version }}" }
-      - run: pip install -e organism_sim -e dnalang-core -e osiris-governance -e "bridge[dev,governance]"
+      - run: pip install -e organism_sim -e "dnalang-core[ibm]" -e osiris-governance -e "bridge[dev,governance]"
       - run: ruff check --select E,F,W,I --ignore E501 bridge/bridge bridge/tests
       - run: cd bridge && pytest -q
